@@ -76,7 +76,7 @@ public class BTree extends BtreeOrder {
 					for (int j = 1; j < this.getNodes().length; ++j) { // pour trouver le fils avec ce père
 
 						if (this.nodes[j].getFather().equals(nodeCurrent)) {
-							System.out.println(this.getNodes()[j + i].getName());
+						//	System.out.println(this.getNodes()[j + i].getName());
 							nodeCurrent = this.getNodes()[j + i];
 							j = this.getNodes().length;
 							i = nodeCurrent.getValueNode().size();
@@ -85,7 +85,7 @@ public class BTree extends BtreeOrder {
 					}
 
 					
-				} else if (nodeCurrent.getValueNode().get(i) < value){
+				} else if (i == nodeCurrent.getValueNode().size() -1){
 					
 					for (int j = 1; j < this.getNodes().length; ++j) { // pour trouver le fils avec ce père
 
@@ -163,6 +163,7 @@ public class BTree extends BtreeOrder {
 
 		rootValues.add(7);
 		rootValues.add(10);
+		rootValues.add(17);
 		// rootValues.add(8);
 		btree.root.setValueNode(rootValues);
 		// btree.currentNode.setValueNode(rootValues);
@@ -174,7 +175,7 @@ public class BTree extends BtreeOrder {
 		Node n3 = new Node("N3");
 		n3.setFather(btree.root);
 		Node n4 = new Node("N4");
-
+		n4.setFather(btree.root);
 		// Init value N1
 		List<Integer> n1Values = new ArrayList<Integer>();
 		n1Values.add(2);
@@ -195,7 +196,8 @@ public class BTree extends BtreeOrder {
 
 		// Init value N4
 		List<Integer> n4Values = new ArrayList<Integer>();
-
+		n4Values.add(19);
+		n4Values.add(20);
 		n4.setValueNode(n4Values);
 
 		// on rajoute les node
@@ -215,7 +217,9 @@ public class BTree extends BtreeOrder {
 	//	System.out.println("The Value is located in node : " + btree.search(7));
 	//	System.out.println("The Value is located in node : " + btree.search(2));
 		//System.out.println("The Value is located in node : " + btree.search(8));
-		System.out.println("The Value is located in node : " + btree.search(15));
+	//	System.out.println("The Value is located in node : " + btree.search(15));
+		//System.out.println("The Value is located in node : " + btree.search(19));
+		System.out.println("The Value is located in node : " + btree.search(20));
 		/*
 		 * System.out.println(btree.getNodes()[0].toString()); btree.insertion(11);
 		 * System.out.println("The Value is located in node : " + btree.search(11));
