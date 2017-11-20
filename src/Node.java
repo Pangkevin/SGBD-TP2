@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Node extends BtreeOrder {
@@ -48,6 +49,25 @@ public class Node extends BtreeOrder {
 	public String toString() {
 
 		return this.name;
+	}
+
+	public String toStringListValueNode(){
+		
+		String listValueString = "[ ";
+		
+		for(Integer node : this.getValueNode()){
+			
+			listValueString += node+" ,";
+		}
+		
+		return listValueString+"]";
+		
+	}
+	
+	public void sortNaturalList(){
+		
+		Collections.sort(this.getValueNode());
+
 	}
 
 }
